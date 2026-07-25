@@ -22,7 +22,7 @@ Durante esta atividade foram abordados os seguintes conceitos:
 - Captura de dados com `Entry`
 - Exibição de imagens utilizando `PhotoImage`
 
-## Estrutura do projeto
+## Estrutura do meu projeto
 
 ```
 Janela Básica/
@@ -38,7 +38,7 @@ Janela Básica/
 └── README.md
 ```
 
-## Organização dos arquivos
+## Organização dos meus arquivos
 
 | Arquivo | Descrição |
 |---------|-----------|

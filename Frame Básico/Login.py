@@ -1,52 +1,66 @@
-import tkinter as tk
+import tkinter as tk 
+
+from tkinter import messagebox  
 
 root = tk.Tk()
 root.title("Login")
-root.geometry("300x220")
-root.config(bg="black")
+root.geometry("300x400")
+root.config(bg="white")
 
+# ------------------------ IMAGEM --------------------------------
 
-def entrar():
-    nome = usuario.get()
-    senha_digitada = senha.get()
+Profile = tk.PhotoImage(
+    file="Frame Básico/img/Profile.png"
+)
+Profile = Profile.subsample(4, 4)
 
-    if nome == "admin" and senha_digitada == "1234":
-        resultado.config(text="Login realizado com sucesso!", fg="green")
-    else:
-        resultado.config(text="Usuário ou senha incorretos!", fg="red")
+imagem_Profile = tk.Label(
+                          root,
+                          image=Profile,
+                          bg="white"
+)
 
+imagem_Profile.pack(pady=20)
 
-tk.Label(root,
-         text="Faça seu login",
-         bg="black",
-         fg="white",
-         font=("Arial", 14, "bold")).pack(pady=10)
+#-------------------------- USUARIO ------------------------------
 
-tk.Label(root,
-         text="Usuário:",
-         fg="white",
-         bg="black").pack()
+Label_usuario = tk.Label (root,
+                          text="Usuário:",
+                          bg="white",
+                          fg="black"
+)
 
-usuario = tk.Entry(root, justify="center")
-usuario.pack(pady=5)
+Label_usuario.pack()
 
-tk.Label(root,
-         text="Senha:",
-         fg="white",
-         bg="black").pack()
+usuario = tk.Entry (root,
+                  bg="white")
 
-senha = tk.Entry(root, justify="center", show="*")
-senha.pack(pady=5)
+usuario.pack (pady=10)
 
-botao = tk.Button(root,
-                  text="Entrar",
-                  command=entrar,
-                  bg="blue",
-                  fg="white",
-                  width=20)
-botao.pack(pady=15)
+#-------------------------- SENHA --------------------------------
 
-resultado = tk.Label(root, text="", bg="black", fg="white")
-resultado.pack()
+Label_senha = tk.Label (root,
+                          text="Senha:",
+                          bg="white",
+                          fg="black"
+)
+
+Label_senha.pack(pady=10)
+
+senha= tk.Entry (root,
+                  bg="white")
+
+senha.pack ()
+
+#--------------------------- BOTÃO DE "ENTRE" ---------------------
+
+Botão_login = tk.Button (root,
+                          text="Entre",
+                          bg="black",
+                          fg="white",
+                          width=20 
+)
+
+Botão_login.pack(pady=20)
 
 root.mainloop()

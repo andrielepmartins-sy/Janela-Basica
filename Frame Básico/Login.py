@@ -4,8 +4,10 @@ from tkinter import messagebox
 
 root = tk.Tk()
 root.title("Login")
-root.geometry("300x400")
+root.geometry("300x500")
 root.config(bg="white")
+
+tk.Label(root, text="Faça seu login", font=("Arial", 16), bg="white").pack(pady=20)
 
 # ------------------------ IMAGEM --------------------------------
 
@@ -24,43 +26,64 @@ imagem_Profile.pack(pady=20)
 
 #-------------------------- USUARIO ------------------------------
 
-Label_usuario = tk.Label (root,
-                          text="Usuário:",
-                          bg="white",
-                          fg="black"
-)
-
-Label_usuario.pack()
+tk.Label(root, text="Usuário:", bg="white", anchor="w").pack(fill="x", padx=40)
 
 usuario = tk.Entry (root,
                   bg="white")
 
 usuario.pack (pady=10)
 
+
 #-------------------------- SENHA --------------------------------
 
-Label_senha = tk.Label (root,
-                          text="Senha:",
-                          bg="white",
-                          fg="black"
-)
+tk.Label(root, text="Senha:", bg="white", anchor="w").pack(fill="x", padx=40)
 
-Label_senha.pack(pady=10)
+entry_senha = tk.Entry(root, show="*")
+entry_senha.pack(pady=10)
 
-senha= tk.Entry (root,
-                  bg="white")
+#------------------------- FUNÇÃO DE LOGIN E SENHA ----------------
 
-senha.pack ()
+def login():
+    usuario_digitado = usuario.get()
+    senha_digitada = entry_senha.get()
+
+    if usuario_digitado == "admin" and senha_digitada == "1234":
+        messagebox.showinfo("Login", "Login bem-sucedido!")
+    else:
+        messagebox.showerror("Login", "Usuário ou senha incorretos.")
 
 #--------------------------- BOTÃO DE "ENTRE" ---------------------
 
-Botão_login = tk.Button (root,
-                          text="Entre",
-                          bg="black",
-                          fg="white",
-                          width=20 
-)
+tk.Button(
+    root,
+    text="Entrar",
+    command=login, 
+    bg="black", 
+    fg="white"
+).pack(fill="x", padx=60, pady=20)
 
-Botão_login.pack(pady=20)
 
+# ----------------- PARTE INFERIOR ----------------
+
+frame = tk.Frame(root, bg="white")
+frame.pack(fill="x", padx=30, pady=25)
+
+lembrar = tk.BooleanVar()
+
+tk.Checkbutton(
+    frame,
+    text="Lembrar-me",
+    variable=lembrar,
+    bg="white"
+).pack(side="left")
+
+tk.Label(
+    frame,
+    text="Esqueceu sua senha?",
+    fg="blue",
+    bg="white",
+    cursor="hand2"
+).pack(side="right")
+
+#------------------- FINAL -----------------------------------------    
 root.mainloop()

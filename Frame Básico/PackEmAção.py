@@ -11,4 +11,3 @@ tk.Label(root, text="Hello, Right!").pack(side="right")
 tk.Checkbutton(root, text="Uma opção na parte inferior!").pack(side=tk.BOTTOM)
 
 root.mainloop()
-

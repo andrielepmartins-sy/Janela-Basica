@@ -5,6 +5,19 @@ root = tk.Tk()
 root.title("SENAI - Desenvolvimento de Sistemas")
 root.configure(bg="white")
 
+janela_largura = 400
+janela_altura = 200
+
+tela_largura = root.winfo_screenwidth()
+tela_altura = root.winfo_screenheight()
+
+centro_x = int(tela_largura / 2 - janela_largura / 2)
+centro_y = int(tela_altura / 2 - janela_altura / 2)
+
+root.geometry(
+    f"{janela_largura}x{janela_altura}+{centro_x}+{centro_y}"
+)
+
 # ---------------- IMAGEM ----------------
 
 perfil = tk.PhotoImage(file="Grid/img/Perfil.png")
@@ -28,7 +41,8 @@ genero = ttk.Combobox(
     root,
     values=["Masculino", "Feminino", "Transgênero" "Outro"],
     state="readonly",
-    width=22
+    width=22,
+    cursor="hand2"
 )
 genero.grid(row=2, column=2, padx=5, pady=5)
 
@@ -40,7 +54,8 @@ olhos = ttk.Combobox(
     root,
     values=["Castanho", "Azul", "Verde", "Preto", "Mel"],
     state="readonly",
-    width=22
+    width=22,
+    cursor="hand2"
 )
 olhos.grid(row=3, column=2, padx=5, pady=5)
 
@@ -61,9 +76,10 @@ entry_peso.grid(row=5, column=2, padx=5, pady=5)
 # ---------------- BOTÃO ----------------
 
 def enviar():
-    messagebox.showinfo("Cadastro", "Cadastro enviado com sucesso!")
+    messagebox.showinfo("Dados", f"\n Nome: {entry_nome.get()}\n Cor dos Olhos: {olhos.get()}\n Altura: {entry_altura.get()}\n Peso: {entry_peso.get()}")
 
-btn = tk.Button(root, text="Enviar", command=enviar)
+
+btn = tk.Button(root, text="Enviar", command=enviar, cursor="hand2")
 btn.grid(row=6, column=2, padx=5, pady=5, sticky="e")
 
 root.mainloop()

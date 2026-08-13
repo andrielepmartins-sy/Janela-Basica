@@ -4,10 +4,6 @@ from tkinter import ttk, messagebox
 root = tk.Tk()
 root.title("Conversor de Moedas")
 
-# ----------------------------------------
-# TAMANHO E POSIÇÃO DA JANELA
-# ----------------------------------------
-
 janela_largura = 400
 janela_altura = 250
 
@@ -21,9 +17,7 @@ root.geometry(
     f"{janela_largura}x{janela_altura}+{centro_x}+{centro_y}"
 )
 
-# ----------------------------------------
 # VALOR
-# ----------------------------------------
 
 text = tk.Label(
     root,
@@ -49,9 +43,7 @@ valor_entry.grid(
     padx=5
 )
 
-# ----------------------------------------
 # MOEDA DE ORIGEM
-# ----------------------------------------
 
 origem_label = tk.Label(
     root,
@@ -81,9 +73,7 @@ origem.grid(
 
 origem.set("BRL")
 
-# ----------------------------------------
 # MOEDA DE DESTINO
-# ----------------------------------------
 
 destino_label = tk.Label(
     root,
@@ -113,9 +103,7 @@ destino.grid(
 
 destino.set("JPY")
 
-# ----------------------------------------
 # TAXAS DE CONVERSÃO
-# ----------------------------------------
 
 taxas = {
     "BRL": {
@@ -131,7 +119,7 @@ taxas = {
         "USD": 1,
         "EUR": 0.86,
         "GBP": 0.76,
-        "JPY": 147
+        "JPY": 147.00
     },
 
     "EUR": {
@@ -159,9 +147,7 @@ taxas = {
     }
 }
 
-# ----------------------------------------
 # FUNÇÃO PARA CONVERTER
-# ----------------------------------------
 
 def converter():
 
@@ -176,7 +162,7 @@ def converter():
         resultado = valor * taxa
 
         calculo.config(
-            text=f"{valor:g} {moeda_origem} = {resultado:.2f} {moeda_destino}"
+            text=f"{valor:.2f} {moeda_origem} = {resultado:.2f} {moeda_destino}"
         )
 
     except ValueError:
@@ -187,15 +173,15 @@ def converter():
         )
 
 
-# ----------------------------------------
 # BOTÃO
-# ----------------------------------------
 
 botao = tk.Button(
     root,
     text="Converter",
     font=("Arial", 12),
-    command=converter
+    command=converter,
+    cursor="hand2"
+
 )
 
 botao.grid(
@@ -205,9 +191,7 @@ botao.grid(
     pady=10
 )
 
-# ----------------------------------------
 # RESULTADO
-# ----------------------------------------
 
 resultado_label = tk.Label(
     root,
@@ -236,9 +220,7 @@ calculo.grid(
     padx=5
 )
 
-# ----------------------------------------
 # ATUALIZA O TEXTO AO TROCAR AS MOEDAS
-# ----------------------------------------
 
 def atualizar_resultado(event=None):
 
@@ -252,9 +234,5 @@ def atualizar_resultado(event=None):
 
 origem.bind("<<ComboboxSelected>>", atualizar_resultado)
 destino.bind("<<ComboboxSelected>>", atualizar_resultado)
-
-# ----------------------------------------
-# INICIAR PROGRAMA
-# ----------------------------------------
 
 root.mainloop()

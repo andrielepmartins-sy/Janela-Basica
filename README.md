@@ -74,7 +74,3 @@ python JanelaPrincipal.py
 ## Finalidade
 
 Este projeto foi desenvolvido exclusivamente para fins de estudo durante o curso de Desenvolvimento de Sistemas. Novos conteúdos poderão ser adicionados conforme o andamento das aulas.
-
-## Autor
-
-Andriele Martins
